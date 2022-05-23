@@ -1,6 +1,7 @@
 import type {NextPage} from 'next'
 import {useEffect, useState} from 'react';
 import {getRandomDirection, randomColorGenerator} from '../utils/utils';
+import Button from '../components/Button';
 
 const Home: NextPage = () => {
     const [color, setColor] = useState<string>('')
@@ -33,23 +34,8 @@ const Home: NextPage = () => {
                 className="background"
                 style={{background: `linear-gradient(${direction}, ${color}, ${color2})`}}
             />
-            <button
-                onClick={colorHandler}
-                className="button"
-            >
-                <span className="button__text-container">
-                    <span className="button__text">
-                        Change colors
-                    </span>
-                </span>
-            </button>
-            <button onClick={copyHandler} className="button">
-                <span className="button__text-container">
-                    <span className="button__text">
-                        {text}
-                    </span>
-                </span>
-            </button>
+            <Button onClick={colorHandler} text={'Change colors'}/>
+            <Button onClick={copyHandler} text={text}/>
             <span className="colors">
                 background: linear-gradient({direction}, {color}, {color2})
             </span>
